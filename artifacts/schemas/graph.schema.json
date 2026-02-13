@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/evidence_graph.schema.json",
+  "title": "EvidenceGraph",
+  "type": "object",
+  "required": ["nodes", "edges"],
+  "properties": {
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "name"],
+        "properties": {
+          "id": { "type": "string" },
+          "kind": { "type": "string", "enum": ["AO", "THREAT", "EVIDENCE_TYPE", "EVIDENCE_INSTANCE", "CONTROL", "STAGE", "DELIVERABLE", "PRECONDITION", "VERIFICATION"] },
+          "name": { "type": "string" },
+          "meta": { "type": "object", "additionalProperties": true }
+        },
+        "additionalProperties": false
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["src", "dst", "rel"],
+        "properties": {
+          "src": { "type": "string" },
+          "dst": { "type": "string" },
+          "rel": { "type": "string" },
+          "meta": { "type": "object", "additionalProperties": true }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

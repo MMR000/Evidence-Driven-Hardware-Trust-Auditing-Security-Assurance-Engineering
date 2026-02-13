@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/evidence_item.schema.json",
+  "title": "EvidenceItem",
+  "type": "object",
+  "required": ["evidence_id", "type", "tier", "ao_ids", "collected_at", "provenance", "payload"],
+  "properties": {
+    "evidence_id": {
+      "type": "string",
+      "pattern": "^EA-[0-9]{4}$"
+    },
+    "type": {
+      "type": "string",
+      "description": "Semantic evidence type name (e.g., boot_state_dump, signed_manifest, attestation_token)"
+    },
+    "tier": {
+      "type": "string",
+      "enum": ["E1-CRYPTO", "E2-MEASUREMENT", "E3-CONFIG", "E4-PROCESS"]
+    },
+    "ao_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^AO-[0-9]{2}$" },
+      "minItems": 1
+    },
+    "collected_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "validity": {
+      "type": "object",
+      "properties": {
+        "expires_at": { "type": "string", "format": "date-time" },
+        "conditions": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["collector", "tool", "tool_version", "environment", "integrity"],
+      "properties": {
+        "collector": { "type": "string" },
+        "tool": { "type": "string" },
+        "tool_version": { "type": "string" },
+        "environment": {
+          "type": "object",
+          "properties": {
+            "os": { "type": "string" },
+            "host": { "type": "string" }
+          },
+          "additionalProperties": true
+        },
+        "integrity": {
+          "type": "object",
+          "properties": {
+            "sha256": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" },
+            "signed": { "type": "boolean" },
+            "signature_ref": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "payload": {
+      "type": "object",
+      "description": "Evidence payload. May include file references, extracted values, attestation chains, etc.",
+      "additionalProperties": true
+    },
+    "notes": { "type": "string" },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": false
+}

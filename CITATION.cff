@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it."
+type: software
+title: "Hardware Trust Auditing and Security Assurance Engineering (Review Repo)"
+authors:
+  - family-names: "Atanbayev"
+    given-names: "Yernat"
+    email: "yernatatanbayev@gmail.com"
+  - family-names: "Budenov"
+    given-names: "Ruslan"
+  - family-names: "Jilkibayev"
+    given-names: "Yerbolsyn"
+  - family-names: "Tokkuliyeva"
+    given-names: "Aizhan"
+  - family-names: "Shaikhanova"
+    given-names: "Aigul Kairulayevna"
+date-released: "2026-02-13"
+license: "MIT"
+repository-code: "https://github.com/<org-or-user>/<repo>"

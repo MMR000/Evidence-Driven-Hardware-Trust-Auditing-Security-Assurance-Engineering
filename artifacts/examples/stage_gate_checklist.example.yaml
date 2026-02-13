@@ -1,0 +1,11 @@
+stage: "G2"
+checklist:
+  - item: "Signed update manifest validation exists"
+    status: "PASS"
+    evidence: ["EA-0002"]
+  - item: "Rollback prevention policy evidenced"
+    status: "PASS"
+    evidence: ["EA-0001", "EA-0002"]
+  - item: "Traceability graph snapshot produced"
+    status: "PASS"
+    evidence: ["graphs/toy/toy_graph.json"]

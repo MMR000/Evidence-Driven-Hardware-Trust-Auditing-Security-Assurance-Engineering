@@ -1,0 +1,30 @@
+{
+  "nodes": [
+    { "id": "AO-02", "kind": "AO", "name": "Boot chain (ROM→BL→OS)" },
+    { "id": "AO-03", "kind": "AO", "name": "Anti-rollback policy" },
+    { "id": "AO-04", "kind": "AO", "name": "Firmware update mechanism" },
+    { "id": "AO-09", "kind": "AO", "name": "Wi-Fi/BT/NFC firmware and drivers" },
+    { "id": "T_OTA_COMPROMISE", "kind": "THREAT", "name": "OTA pipeline tampering / unauthorized components accepted" },
+    { "id": "T_WIRELESS_DOWNGRADE", "kind": "THREAT", "name": "Wireless downgrade / insecure fallback allowed" },
+    { "id": "EA-0001", "kind": "EVIDENCE_INSTANCE", "name": "Verified boot state dump (toy)" },
+    { "id": "EA-0002", "kind": "EVIDENCE_INSTANCE", "name": "Signed update manifest validation (toy)" },
+    { "id": "SR-SUPPLY", "kind": "CONTROL", "name": "Supply-chain provenance and SBOM" },
+    { "id": "SI-BOOT", "kind": "CONTROL", "name": "Verified/Measured boot enforcement" },
+    { "id": "SC-WIRELESS", "kind": "CONTROL", "name": "Wireless downgrade resistance" },
+    { "id": "G2", "kind": "STAGE", "name": "Pilot / EVT-DVT" },
+    { "id": "DELIV-TRACE", "kind": "DELIVERABLE", "name": "Traceability graph snapshot" }
+  ],
+  "edges": [
+    { "src": "T_OTA_COMPROMISE", "dst": "AO-04", "rel": "targets" },
+    { "src": "T_OTA_COMPROMISE", "dst": "EA-0002", "rel": "supported_by" },
+    { "src": "T_OTA_COMPROMISE", "dst": "SR-SUPPLY", "rel": "mitigated_by" },
+    { "src": "T_OTA_COMPROMISE", "dst": "SI-BOOT", "rel": "mitigated_by" },
+
+    { "src": "T_WIRELESS_DOWNGRADE", "dst": "AO-09", "rel": "targets" },
+    { "src": "T_WIRELESS_DOWNGRADE", "dst": "EA-0001", "rel": "supported_by" },
+    { "src": "T_WIRELESS_DOWNGRADE", "dst": "SC-WIRELESS", "rel": "mitigated_by" },
+
+    { "src": "G2", "dst": "DELIV-TRACE", "rel": "requires" },
+    { "src": "DELIV-TRACE", "dst": "graphs/toy/toy_graph.json", "rel": "includes_file" }
+  ]
+}

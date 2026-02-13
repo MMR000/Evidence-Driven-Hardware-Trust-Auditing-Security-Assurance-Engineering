@@ -1,0 +1,34 @@
+stages:
+  G1:
+    name: "Prototype"
+    required_deliverables:
+      - "AO inventory snapshot"
+      - "Threat registry (toy or real)"
+      - "Evidence schema + minimum evidence for top threats"
+    evidence_min_tier:
+      - "E3-CONFIG"
+  G2:
+    name: "Pilot / EVT-DVT"
+    required_deliverables:
+      - "Signed update manifest validation evidence"
+      - "Rollback policy evidence"
+      - "TEE/Key attestation evidence (where feasible)"
+      - "Traceability graph snapshot"
+    evidence_min_tier:
+      - "E2-MEASUREMENT"
+  G3:
+    name: "Production Release"
+    required_deliverables:
+      - "SBOM/provenance package"
+      - "Locked debug / policy baselines"
+      - "Independent verification summary"
+    evidence_min_tier:
+      - "E1-CRYPTO"
+  G4:
+    name: "Operations"
+    required_deliverables:
+      - "Continuous compliance/telemetry plan"
+      - "Drift triggers + re-appraisal procedure"
+      - "Change history + exception register"
+    evidence_min_tier:
+      - "E4-PROCESS"

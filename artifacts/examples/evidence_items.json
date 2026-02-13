@@ -1,0 +1,42 @@
+[
+  {
+    "evidence_id": "EA-0001",
+    "type": "verified_boot_state_dump",
+    "tier": "E3-CONFIG",
+    "ao_ids": ["AO-02", "AO-03", "AO-13"],
+    "collected_at": "2026-02-13T00:00:00Z",
+    "provenance": {
+      "collector": "lab-team",
+      "tool": "adb-shell",
+      "tool_version": "1.0",
+      "environment": { "os": "ubuntu", "host": "workstation" },
+      "integrity": { "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "signed": false }
+    },
+    "payload": {
+      "bootloader_locked": true,
+      "vbmeta_verified": true,
+      "rollback_index": 42
+    },
+    "notes": "Toy example values."
+  },
+  {
+    "evidence_id": "EA-0002",
+    "type": "signed_update_manifest_validation",
+    "tier": "E1-CRYPTO",
+    "ao_ids": ["AO-04", "AO-11", "AO-12"],
+    "collected_at": "2026-02-13T00:00:00Z",
+    "provenance": {
+      "collector": "release-eng",
+      "tool": "manifest-verify",
+      "tool_version": "0.1",
+      "environment": { "os": "ubuntu", "host": "ci-runner" },
+      "integrity": { "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "signed": true, "signature_ref": "sigstore://example" }
+    },
+    "payload": {
+      "manifest_id": "MAN-2026-0001",
+      "chain_valid": true,
+      "signer": "OEM-KEY-1",
+      "rollback_prevention": "enforced"
+    }
+  }
+]

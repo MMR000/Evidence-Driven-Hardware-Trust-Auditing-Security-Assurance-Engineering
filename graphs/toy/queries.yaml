@@ -1,0 +1,10 @@
+queries:
+  - name: "list_threats"
+    type: "node_filter"
+    kind: "THREAT"
+  - name: "missing_controls_for_threats"
+    type: "graph_rule"
+    rule: "each THREAT must have at least one outgoing edge rel=mitigated_by to CONTROL"
+  - name: "evidence_per_threat"
+    type: "graph_rule"
+    rule: "each THREAT must have at least one outgoing edge rel=supported_by to EVIDENCE_INSTANCE"

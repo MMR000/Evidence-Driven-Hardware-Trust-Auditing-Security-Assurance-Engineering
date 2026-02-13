@@ -1,0 +1,12 @@
+repo:
+  name: "hardware-trust-auditing-review"
+  created_utc: "2026-02-13T05:03:11Z"
+  purpose: "Evidence-driven assurance engineering review repository (paper + schemas + toy graph + tools)"
+  language: ["en"]
+  topics:
+    - hardware-trust
+    - smartphone-security
+    - assurance-cases
+    - evidence-graphs
+    - supply-chain
+    - remote-attestation

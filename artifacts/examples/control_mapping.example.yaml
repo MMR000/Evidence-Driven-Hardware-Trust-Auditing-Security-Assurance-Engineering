@@ -1,0 +1,13 @@
+mapping:
+  - threat_id: "T_OTA_COMPROMISE"
+    controls: ["SR-SUPPLY", "SI-BOOT", "CM-BASELINE"]
+    verification:
+      - "Verify update manifest signature chain"
+      - "Check rollback prevention policy"
+    evidence_required: ["EA-0002"]
+  - threat_id: "T_WIRELESS_DOWNGRADE"
+    controls: ["SC-WIRELESS", "CM-BASELINE"]
+    verification:
+      - "Confirm policy disables insecure fallback"
+      - "Collect negotiation traces under test harness"
+    evidence_required: ["EA-0001"]

@@ -1,0 +1,20 @@
+bundle:
+  bundle_id: "BUNDLE-0001"
+  device:
+    model: ""
+    sku: ""
+    os_build: ""
+    soc: ""
+    baseband: ""
+    region: ""
+  stage: "G2"
+  scope:
+    ao_ids: []
+  evidence:
+    items_file: "evidence_items.json"
+  mapping:
+    control_mapping_file: "control_mapping.yaml"
+    acceptance_file: "stage_gate_checklist.yaml"
+  outputs:
+    attestation_results: "attestation_results.json"
+    gap_report: "gap_report.md"
